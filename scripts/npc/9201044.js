@@ -70,12 +70,12 @@ function spawnMobs(maxSpawn) {
 
 function generateCombo1() {
     var positions = Array(0, 0, 0, 0, 0, 0, 0, 0, 0);
-    var rndPicked = Math.floor(Math.random() * Math.pow(3, 5));
+    var total = 5;
 
-    while (rndPicked > 0) {
-        (positions[rndPicked % 3])++;
-
-        rndPicked = Math.floor(rndPicked / 3);
+    // Distribute the total (5) randomly among the first three positions
+    for (var i = 0; i < total; i++) {
+        var rndPicked = Math.floor(Math.random() * 3);
+        positions[rndPicked]++;
     }
 
     var returnString = "";
@@ -85,7 +85,6 @@ function generateCombo1() {
             returnString += ",";
         }
     }
-
     return returnString;
 }
 
